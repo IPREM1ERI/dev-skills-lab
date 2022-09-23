@@ -18,7 +18,19 @@ function newStudent(req, res) {
   res.render('students/new')
 }
 
+function create(req,res) {
+  Student.create(req.body)
+  .then(student => {
+    res.redirect('/students')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
 export {
   index,
-  newStudent as new
+  newStudent as new,
+  create
 }
