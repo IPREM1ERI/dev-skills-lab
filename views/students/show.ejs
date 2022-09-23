@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1>Student</h1>
+  <a href="/students/<%= student._id %>/edit">Edit Passed/Failed Status</a>
   <h2>Student ID #<%= student._id %></h2>
   <h3><%= student.name %></h3>
   <p>Passed: <%= student.passed? 'Yes' : 'No' %></p>

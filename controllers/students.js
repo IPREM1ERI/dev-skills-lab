@@ -41,10 +41,36 @@ function show(req, res) {
     res.redirect('/')
   })
 }
+function edit(req, res) {
+  Student.findById(req.params.id)
+  .then(student => {
+    res.render('students/edit', {
+      student: student
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/todos')
+  })
+}
+
+function update(req, res) {
+  req.body.passed = !!req.body.passed
+  Student.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(student => {
+    res.redirect(`/students/${student._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/todos')
+  })
+}
 
 export {
   index,
   newStudent as new,
   create,
-  show
+  show,
+  edit,
+  update
 }
