@@ -12,9 +12,9 @@
   <ul>
     <% students.forEach(student =>{ %>
       <li>
-        <%= student.name %>
+        <a href="/students/<%= student._id %>"><%= student.name %></a>
         - 
-        <%= student.passed ? 'You passed the 11th grade (^-^)/' : 'You failed the 11th grade -_-' %>  
+        <%= student.passed ? "Passsed (^_^)/" : "Failed -_-" %> 
       </li>
     <% }) %> 
   </ul>
