@@ -12,6 +12,11 @@
   <ul>
     <% students.forEach(student =>{ %>
       <li>
+        <form 
+        action="/students/<%= student._id %>?_method=DELETE" class="delete-form"
+        method="Post">
+        <button type="submit">X</button>
+      </form>
         <a href="/students/<%= student._id %>"><%= student.name %></a>
         - 
         <%= student.passed ? "Passsed (^_^)/" : "Failed -_-" %> 

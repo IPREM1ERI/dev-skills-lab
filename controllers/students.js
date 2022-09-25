@@ -66,11 +66,23 @@ function update(req, res) {
   })
 }
 
+function deleteStudent(req, res) {
+  Student.findByIdAndDelete(req.params.id)
+  .then(student => {
+    res.redirect('/students')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/todos')
+  })
+}
+
 export {
   index,
   newStudent as new,
   create,
   show,
   edit,
-  update
+  update,
+  deleteStudent as delete
 }
